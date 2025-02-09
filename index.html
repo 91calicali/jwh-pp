@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="JWH Portfolio Page">
+    <meta property="og:description" content="Ji Won Hong Web publisher Portfolio Page">
+    <meta property="og:site_name" content="JWH Portfolio Page">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/x-icon" href="resource/index/image/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="resource/index/image/favicon.png">
+    <link rel="apple-touch-icon" href="resource/index/image/favicon.png">
+    <link rel="stylesheet" href="css/index/common.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <title>JWH Portfolio Page</title>
+</head>
+<body>
+    <div class="container">
+        <!-- header. (width 1024px이하) -->
+        <header>
+            <div class="gnb-btn" onclick="navToggle()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </header>
+        <!-- gnb nav. (width 1024px 이하) -->
+        <div class="gnb-nav">
+            <nav>
+                <!-- onclick : gnb nav가 사라지면서 이동 -->
+                <a href="#" onclick="navToggle();">INTRO</a>
+                <a href="#about-section" onclick="navToggle();">ABOUT</a>
+                <a href="#skill-section" onclick="navToggle();">SKILL</a>
+                <a href="#publ-section" onclick="navToggle();">PUBLISHING</a>
+                <a href="#outro-section" onclick="navToggle();">CONTACT</a>
+            </nav>
+        </div>
+        <!-- slide nav (화면 우측 fix) -->
+        <div class="slide-nav">
+            <!-- 마우스 위치에 따라 처리. -->
+            <div onmouseenter="slideNavMouseEnter(this)" onmouseleave="slideNavMouseLeave(0, this)"><span class="slide-name"><a href="#">INTRO</a></span><span class="line"></span></div>
+            <div onmouseenter="slideNavMouseEnter(this)" onmouseleave="slideNavMouseLeave(1, this)"><span class="slide-name"><a href="#about-section">ABOUT</a></span><span class="line"></span></div>
+            <div onmouseenter="slideNavMouseEnter(this)" onmouseleave="slideNavMouseLeave(2, this)"><span class="slide-name"><a href="#skill-section">SKILL</a></span><span class="line"></span></div>
+            <div onmouseenter="slideNavMouseEnter(this)" onmouseleave="slideNavMouseLeave(3, this)"><span class="slide-name"><a href="#publ-section">PUBLISHING</a></span><span class="line"></span></div>
+            <div onmouseenter="slideNavMouseEnter(this)" onmouseleave="slideNavMouseLeave(4, this)"><span class="slide-name"><a href="#outro-section">CONTACT</a></span><span class="line"></span></div>
+        </div>
+        <!-- intro -->
+        <section class="intro-section flex-center">
+            <h1>Ji WonHong's Portfolio</h1>
+        </section>
+        <!-- about -->
+        <section id="about-section" class="about-section flex-center">
+            <div class="about-inner">
+                <div class="area flex-center">
+                    <div class="my-picture"></div>
+                </div>
+                <div class="area">
+                    <dl>
+                        <div>
+                            <dt>NAME</dt>
+                            <dd>지 원 홍</dd>
+                        </div>
+                        <div>
+                            <dt>BIRTH</dt>
+                            <dd>1991.08.08</dd>
+                        </div>
+                        <div>
+                            <dt>Introduce</dt>
+                            <dd>
+                                안녕하세요. 웹 퍼블리셔 직무에 지원한 지원홍입니다.
+                                <br><br>
+                                저는 아이디어를 시각화하여 전달하는 일에 관심이 많습니다. 
+                                단순히 눈으로 보는 것 뿐이지만 사용자와 가장 가깝게 소통할 수 있는 수단이라고 생각하기 때문입니다.
+                                그렇기에 좋은 사람들과 좋은 아이디어를 인상 깊게 전달하는 일을 해보고 싶습니다.
+                                <br><br>
+                                제 포트폴리오에 방문해주셔서 감사합니다.
+                            </dd>
+                        </div>
+                        <div>
+                            <dt>Experience</dt>
+                            <dd>
+                                <p class="company">
+                                    달콤소프트 
+                                </p>
+                                <p class="period">
+                                    2020.08-2023.10
+                                </p>
+                                <p class="role">
+                                    자바 개발 및 웹 퍼블리싱
+                                </p>
+                                <p class="company-exp">
+                                    K-POP IP를 이용한 모바일 게임인 슈퍼스타 시리즈를 서비스하는 달콤소프트에서 <span onclick="webEventPop()">웹 이벤트</span> 개발을 담당했습니다.
+                                </p>
+                                <p>
+                                    주요 업무
+                                </p>
+                                <ul>
+                                    <li>이벤트 기획서 분석 후 비즈니스 로직 구현</li>
+                                    <li>테이블 규칙 설계, 쿼리 작성</li>
+                                    <li>디자인 가이드에 따라 JSP 환경에서의 웹 퍼블리싱</li>
+                                    <li>유관 부서 데이터 분석 자료, 유저 1:1 문의 대응 자료 제공</li>
+                                    <li>신규 시리즈 런칭 사전 예약 페이지 웹 퍼블리싱 <a href="https://superstarloona.dalcomsoft.com/">(링크)</a></li>
+                                </ul>
+
+                                <p class="company">
+                                    토브소프트
+                                </p>
+                                <p class="period">
+                                    2024.08~
+                                </p>
+                                <p class="role">
+                                    웹 퍼블리싱
+                                </p>
+                                <p class="company-exp">
+                                    교육용 소프트웨어를 개발하는 토브소프트에서 웹 퍼블리싱을 담당했습니다.
+                                </p>
+                                <p>
+                                    주요 업무
+                                </p>
+                                <ul>
+                                    <li>디지털 교과서 컨텐츠 웹 퍼블리싱</li>
+                                    <li>Javascript로 인터랙션 구현</li>
+                                </ul>
+                            </dd>
+                        </div>
+                        
+                    </dl>
+                </div>
+            </div>
+
+            <div class="web-event-popup">
+                <div>
+                    <p>
+                        웹 이벤트란?
+                    </p>
+                    <p>
+                        인게임 배너를 통해 접속할 수 있는 웹페이지로 슈퍼스타 시리즈의 메인 컨텐츠인 리듬 게임 외에 유저에게 다른 재미를 제공하기 위해 만들어진 이벤트입니다.<br>
+                        이벤트 컨셉에 따라 유저에게 어떠한 방식으로 아이템을 지급할 것인지 기획이 되고 그에 맞는 로직을 구현하였습니다.<br>
+                        전체적인 흐름은 유저 접속 → 접속한 유저 데이터 조회 → 데이터 기반 로직 실행(ex. 게임 플레이 횟수를 포인트화) → 유저 액션(요청) → 액션 처리(응답) 순입니다.
+                    </p>
+                    <p>
+                        ※ 규정 상 작업물 URL은 제공하지 못하였습니다.
+                    </p>
+                </div>
+                <div class="imgs">
+                    <img src="resource/index/image/we1.jpg" alt="">
+                    <img src="resource/index/image/we2.jpg" alt="">
+                    <img src="resource/index/image/we3.png" alt="">
+                    <img src="resource/index/image/we4.jpg" alt="">
+                </div>
+
+                <div class="web-event-popup-xbtn" onclick="webEventPop()">×</div>
+            </div>
+        </section>
+        <!-- skill -->
+        <section id="skill-section" class="skill-section">
+            <div class="skill-inner">
+                <div class="area">
+                    <div class="area-inner">
+                        <h2>SKILL</h2>
+                        <p class="sub-tit">
+                            Backend
+                        </p>
+                        <ul>
+                            <li>Java</li>
+                            <li>Spring</li>
+                            <li>MySQL</li>
+                        </ul>
+                        <div class="sub-tit">
+                            Frontend
+                        </div>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>Javascript</li>
+                            <li>jQuery</li>
+                        </ul>
+                        <div class="sub-tit">
+                            Tools
+                        </div>
+                        <ul>
+                            <li>Github</li>
+                            <li>Gitlab</li>
+                            <li>Eclipse</li>
+                            <li>IntelliJ</li>
+                            <li>VSCode</li>
+                            <li>Jira</li>
+                            <li>Confluence</li>
+                        </ul>
+                    </div>
+                </div>                
+                <div class="text-deco">
+                    <div>#BACKEND</div>
+                    <div>#FRONTEND</div>
+                    <div>#TOOLS</div>
+                </div>
+            </div>
+        </section>
+        <!-- publishing -->
+        <section id="publ-section" class="publ-section flex-center">
+            <div class="publ-inner">
+                <div class="area">
+                    <div class="area-inner">
+                        <div class="item-btn active" onclick="itemView(0, this)"></div>
+                        <div class="item-btn" onclick="itemView(1, this)"></div>
+                        <div class="item-btn" onclick="itemView(2, this)"></div>
+                        <div class="item-btn" onclick="itemView(3, this)"></div>
+                    </div>
+                </div>
+                <div class="area">
+                    <div class="area-inner item-desc active">
+                        <h2>보그 코리아</h2>
+                        <p>
+                            #메인페이지 #토이프로젝트
+                        </p>
+                        <p>
+                            보그 코리아의 메인 페이지를 하드 코딩으로 재현하는 것을 목적으로 퍼블리싱 했습니다.
+                            각 섹션의 아이템은 flex 속성을 이용해 정렬했고 헤더는 translate 값 변화로 구현했습니다.
+                        </p>
+                        <div class="view-btn" onclick="viewPageInModal(0)">View</div>
+                    </div>
+                    <div class="area-inner item-desc">
+                        <h2>네케르</h2>
+                        <p>
+                            #메인페이지 #토이프로젝트
+                        </p>
+                        <p>
+                            네케르의 메인 페이지를 하드 코딩으로 재현하는 것을 목적으로 퍼블리싱 했습니다.
+                            all products의 정보를 담고 있는 임시 데이터 파일을 만들고 해당 데이터를 스크립트로 불러와 추가하는 방식으로 구현했습니다. 
+                        </p>
+                        <div class="view-btn" onclick="viewPageInModal(1)">View</div>
+                    </div>
+                    <div class="area-inner item-desc">
+                        <h2>쿠팡 플레이</h2>
+                        <p>
+                            #QnA #아코디언 #토이프로젝트
+                        </p>
+                        <p>
+                            아코디언 메뉴를 구현하는 것을 목적으로 쿠팡 플레이 로그인 페이지를 퍼블리싱 했습니다. 화면 하단의 QnA가 해당하는 부분이며 checked 속성값의 변경으로 구현하였습니다.
+                        </p>
+                        <div class="view-btn" onclick="viewPageInModal(2)">View</div>
+                    </div>
+                    <div class="area-inner item-desc">
+                        <h2>메가스터디북스</h2>
+                        <p>
+                            #로그인폼 #토이프로젝트
+                        </p>
+                        <p>
+                            로그인 폼을 구현하는 것을 목적으로 메가스터디북스 로그인 페이지를 퍼블리싱 했습니다. 가상 선택자인 before의 배경 이미지를 변경하는 방식으로 커스텀 체크 박스를 구현했습니다.
+                        </p>
+                        <div class="view-btn" onclick="viewPageInModal(3)">View</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact -->
+        <section id="outro-section" class="outro-section flex-center">
+            <h2>CONTACT</h2>
+            <p>91calicali@gmail.com</p>
+        </section>
+        <!-- footer -->
+        <footer>
+            <p>
+                © 2025 JI WONHONG All Rights Reserved.
+                <br>
+                본 사이트는 상업적 목적이 아닌 개인 포트폴리오 목적으로 제작되었습니다.
+            </p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

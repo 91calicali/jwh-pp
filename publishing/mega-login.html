@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/mega-login.css">
+    <title>메가스터디북스</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="hd-content">
+                <div class="hd-menu">
+                    <!-- logo -->
+                    <a class="hd-logo" href="#none">
+                        <img src="../resource/mega-login/mega-logo.svg" alt="MegastudyBooks">
+                    </a>
+                    <!-- icons -->
+                    <input type="checkbox" id="search-icon">
+                    <label for="search-icon"></label>
+                    <a class="hd-my" href="#none">
+                        <img src="../resource/mega-login/icon-my.svg" alt="My account">
+                    </a>
+                    <input type="checkbox" id="nav-check">
+                    <label for="nav-check" class="nav-btn">
+                        <span></span>
+                    </label>
+                </div>
+                <!-- search -->
+                <div class="hd-search">
+                    <form>
+                        <input type="text" placeholder="검색어 입력">
+                        <button type="button"></button>
+                    </form>
+                </div>
+                <!-- nav -->
+                <nav>
+                    <div class="gnb-content">
+                        <div class="gnb-content-wrap">
+                            <a href="#none"><strong>도서</strong></a>
+                            <ul>
+                                <li><a href="#none">초등</a></li>
+                                <li><a href="#none">중등</a></li>
+                                <li><a href="#none">고등</a></li>
+                                <li><a href="#none">단행본</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb-content-wrap">
+                            <a href="#none"><strong>자료실</strong></a>
+                            <ul>
+                                <li><a href="#none">정답 및 해설</a></li>
+                                <li><a href="#none">정오표</a></li>
+                                <li><a href="#none">듣기자료</a></li>
+                                <li><a href="#none">교사용 자료</a></li>
+                                <li><a href="#none">부가자료</a></li>
+                            </ul>
+                        </div>
+                        <div class="gnb-content-wrap">
+                            <a href="#none"><strong>이벤트</strong></a>
+                        </div>
+                        <div class="gnb-content-wrap">
+                            <a href="#none"><strong>고객센터</strong></a>
+                            <ul>
+                                <li><a href="#none">공지사항</a></li>
+                                <li><a href="#none">고객문의</a></li>
+                                <li><a href="#none">자주 묻는 질문</a></li>
+                                <li><a href="#none">오류 신고</a></li>
+                                <li><a href="#none">총판 안내</a></li>
+                                <li><a href="#none">제휴 문의</a></li>
+                                <li><a href="#none">투고 문의</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="sign-wrap">
+            <!-- login -->
+            <section class="login-section">
+                <h1>Login</h1>
+                <p>아이디</p>
+                <input type="text" placeholder="아이디를 입력해 주세요">
+                <p>비밀번호</p>
+                <input type="password" placeholder="비밀번호를 입력해 주세요">
+                <input type="checkbox" id="maintain-check">
+                <label for="maintain-check">로그인 유지하기</label>
+                <a href="#none">아이디 찾기</a>
+                <a href="#none">비밀번호 찾기</a>
+                <button type="button" id="login-btn">로그인</button>
+            </section>
+            <!-- sign up -->
+            <section class="signup-section">
+                <h2>Sign up</h2>
+                <p>
+                    아직 회원이 아니신가요?
+                    <br>
+                    회원가입을 하시면 다양한 서비스를 편리하게 이용하실 수 있습니다.
+                </p>
+                <img src="../resource/mega-login/signup.svg" alt="sign up">
+                <a href="#none" id="signup-btn">회원가입</a>
+            </section>
+        </div>
+        <!-- simple login -->
+        <section class="simple-login-section">
+            <h3>간편 로그인</h3>
+            <a href="#none">KAKAO 로그인</a>
+            <a href="#none">NAVER 로그인</a>
+            <a href="#none">Google 로그인</a>
+        </section>
+    </div>
+    <script>
+        const body = document.querySelector('body');
+        const nav = document.querySelector('.hd-content nav');
+        const searchIcon = document.getElementById('search-icon');
+        const navIcon = document.getElementById('nav-check');
+
+        // 검색 아이콘을 눌렀을 때 nav가 보이고 있다면 숨긴다.
+        searchIcon.onclick = function(){   
+            const hdSearch = document.getElementsByClassName('hd-search')[0];
+           
+            if(this.checked){
+                hdSearch.style.display = 'flex';
+
+                if(navIcon.checked){
+                    body.style.overflow = 'visible';
+                    $(nav).fadeOut();
+                    navIcon.checked = false;
+                }
+            } else {
+                hdSearch.style.display = 'none';
+            }
+        }
+
+        // nav 아이콘을 눌렀을 때 검색창이 보이고 있다면 숨긴다.
+        navIcon.onclick = function(){
+            const hdSearch = document.getElementsByClassName('hd-search')[0];
+
+            if(this.checked){
+                if(searchIcon.checked){
+                    hdSearch.style.display = 'none';
+                    searchIcon.checked = false;
+                }
+
+                body.style.overflow = 'hidden';
+                $(nav).fadeIn();
+            } else {
+                body.style.overflow = 'visible';
+                $(nav).fadeOut();
+            }           
+        }
+    </script>
+</body>
+</html>

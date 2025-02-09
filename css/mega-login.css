@@ -1,0 +1,330 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: #fff;
+    letter-spacing: -0.5px;
+}
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    width: 360px;
+    height: 1300px;
+}
+header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    width: inherit;
+    background-color: #fff;
+}
+.hd-logo {
+    height: 45px;
+}
+.hd-logo img {
+    width: 140px;
+}
+input[type=checkbox] {
+    display: none;
+}
+.hd-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5px 15px;
+}
+.hd-menu a {
+    font-size: 0;
+}
+.hd-menu label:nth-of-type(1) {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    background: url(../resource/mega-login/icon-search.svg) no-repeat center center;
+    cursor: pointer;
+}
+.hd-my {
+    margin-left: 15px;
+}
+.nav-btn {
+    position: relative;
+    width: 16px;
+    height: 14px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.nav-btn span,
+.nav-btn::before,
+.nav-btn::after {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transition: 0.4s;
+}
+.nav-btn span {
+    top: 50%;
+}
+.nav-btn::before {
+    content: '';
+    top: 0;
+}
+.nav-btn::after {
+    content: '';
+    top: 100%;
+}
+input[id=nav-check]:checked + .nav-btn span {
+    opacity: 0;
+}
+input[id=nav-check]:checked + .nav-btn::before {
+    top: 50%;
+    transform: rotate(45deg);
+}
+input[id=nav-check]:checked + .nav-btn::after {
+    top: 50%;
+    transform: rotate(-45deg);
+}
+.hd-search {
+    display: none;
+    align-items: center;
+    height: 45px;
+    padding: 5px 15px;
+    border-top: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    transition: 0.5s;
+}
+.hd-search form {
+    display: flex;
+    width: 100%;
+}
+.hd-search form input[type=text] {
+    width: 90%;
+    height: 30px;
+    margin-right: 5px;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    padding-left: 10px;
+    outline: none;
+    transition: 0.3s;
+}
+.hd-search form input[type=text]:focus {
+    box-shadow: 0 0 4px #0082ff;
+}
+.hd-search form button {
+    width: 16px;
+    height: 16px;
+    padding: 16px;
+    background: #0082ff url(../resource/mega-login/icon-search2.svg) no-repeat center center;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+/* nav */
+.hd-content nav {
+    display: none;
+    overflow-y: auto;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 35px 0;
+    border-top: 1px solid #cecece;
+    box-sizing: border-box;
+}
+.gnb-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.gnb-content-wrap {
+    width: 100%;
+    padding: 0 15px;
+}
+.gnb-content-wrap > a {
+    display: block;
+    margin-bottom: 15px;
+    color: #000;
+    font-size: 18px;
+}
+.gnb-content-wrap:nth-of-type(3) {
+    margin-bottom: 20px;
+}
+.gnb-content-wrap > a::after {
+    content: '\f105';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-left: 4px;
+    font-size: 8px;
+    font-family: fontawesome;
+    transform: translateY(-50%);
+}
+.gnb-content-wrap ul {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+}
+.gnb-content-wrap ul li {
+    width: 50%;
+    margin-bottom: 5px;
+    color: #666;
+}
+.gnb-content-wrap ul li a {
+    color: inherit;
+    font-size: 15px;
+}
+/* login section */
+.sign-wrap {
+    width: 100%;
+    padding: 30px 15px;
+    border-bottom: 2px solid #000;
+}
+.login-section {
+    height: 380px;
+    margin-top: 70px;
+    border-bottom: 1px solid #cecece;
+}
+.login-section h1 {
+    text-transform: uppercase;
+}
+.login-section p {
+    font-size: 13px;
+    font-weight: 600;
+}
+.login-section input[type=text],
+.login-section input[type=password] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #cecece;
+    outline: none;
+    letter-spacing: -1px;
+    transition: 0.3s;
+}
+.login-section input[type=text]:focus,
+.login-section input[type=password]:focus {
+    box-shadow: 0 0 4px #0082ff;
+}
+.login-section input[type=password] {
+    margin-bottom: 12px;
+}
+.login-section label {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 13px;
+}
+.login-section label::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    border: 1px solid #cecece;
+    border-radius: 50%;
+    transform: translateY(2.5px);
+    transition: 0.3s;
+}
+.login-section input[id=maintain-check]:checked + label::before {
+    background: url(../resource/mega-login/check.svg) no-repeat center center / 100%;
+    box-shadow: 0 0 4px #0082ff;
+}
+.login-section a {
+    color: #575757;
+    font-size: 12px;
+}
+.login-section a:nth-of-type(1)::after {
+    content: '';
+    height: 7px;
+    display: inline-block;
+    margin-left: 3px;
+    border: 1px solid #cecece;
+}
+#login-btn {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-top: 30px;
+    color: #fff;
+    background-color: #0082ff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    letter-spacing: -1px;
+}
+#login-btn:hover {
+    background-color: #0463bd;
+}
+/* signup section */
+.signup-section h2 {
+    text-transform: uppercase;
+}
+.signup-section p {
+    font-size: 12px;
+    margin-bottom: 40px;
+}
+.signup-section img {
+    display: block;
+    margin: 0 auto;
+    width: 200px;
+}
+#signup-btn {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin: 30px 0;
+    color: #0082ff;
+    background-color: #fff;
+    border: 1px solid #0082ff;
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+    line-height: 40px;
+    transition: 0.3s;
+    letter-spacing: -1px;
+}
+#signup-btn:hover {
+    color: #fff;
+    background-color: #0082ff;
+}
+/* simple login */
+.simple-login-section {
+    margin-top: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+.simple-login-section a {
+    display: block;
+    width: 240px;
+    height: 40px;
+    margin: auto;
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid #cecece;
+    border-radius: 20px;
+    line-height: 37px;
+}
+.simple-login-section a:nth-of-type(1){
+    background: url(../resource/mega-login/icon-kakao.svg) no-repeat center left 45px;  
+    background-size: 28px; 
+}
+.simple-login-section a:nth-of-type(2){
+    background: url(../resource/mega-login/icon-naver.svg) no-repeat center left 45px;
+    background-size: 28px;
+}
+.simple-login-section a:nth-of-type(3){
+    background: url(../resource/mega-login/icon-google.svg) no-repeat center left 45px;
+    background-size: 28px;
+}

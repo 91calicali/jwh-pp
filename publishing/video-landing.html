@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Modak&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/video-landing.css">
+    <title>Video Landing</title>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Green</div>
+        <!-- hamburger button -->
+        <div class="toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- text content -->
+        <div class="text-content">
+            <h1>Green</h1>
+            <p>
+                We are a company dedicated to striving for a sustainable future.
+                <br>
+                We promote green energy and lifestyles by offering environmentally-friendly solutions.
+                <br>
+                Our team is committed to sustainability and innovation, practicing social responsibility alongside the planet.
+                <br>
+                Meeting customers' demands with eco-friendly products and services, we contribute to sustainable development.
+                <br>
+                Our green initiatives drive social change and are part of our efforts to create a brighter future.
+                <br>
+                Join us on the journey to realizing our sustainable vision together.
+            </p>
+            <a href="#none">Show more</a>
+        </div>
+        <!-- modal -->
+        <div class="modal">
+            <nav>
+                <a href="#none">Introduce</a>
+                <a href="#none">Product</a>
+                <a href="#none">Contact</a>
+            </nav>
+        </div>
+        <!-- video -->
+        <div class="video-wrap">
+            <video src="../resource/video-landing/video.mp4" autoplay muted loop></video>
+        </div>
+    </div>
+    <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const modal = document.querySelector('.modal');
+
+        toggleBtn.addEventListener('click', () => {
+            if(toggleBtn.classList.contains('active')){
+                toggleBtn.classList.remove('active');
+                modal.classList.remove('active');
+            } else {
+                toggleBtn.classList.add('active');
+                modal.classList.add('active');
+
+            }
+        });
+    </script>
+</body>
+</html>
