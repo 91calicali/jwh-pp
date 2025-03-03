@@ -115,45 +115,39 @@
         </section>
     </div>
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
         const body = document.querySelector('body');
         const nav = document.querySelector('.hd-content nav');
         const searchIcon = document.getElementById('search-icon');
         const navIcon = document.getElementById('nav-check');
+        const hdSearch = document.querySelector('.hd-search');
 
-        // 검색 아이콘을 눌렀을 때 nav가 보이고 있다면 숨긴다.
-        searchIcon.onclick = function(){   
-            const hdSearch = document.getElementsByClassName('hd-search')[0];
-           
-            if(this.checked){
-                hdSearch.style.display = 'flex';
+        // 검색 아이콘 클릭 이벤트
+        searchIcon.addEventListener('change', function() {
+            hdSearch.style.display = this.checked ? 'flex' : 'none';
 
-                if(navIcon.checked){
-                    body.style.overflow = 'visible';
-                    $(nav).fadeOut();
-                    navIcon.checked = false;
-                }
-            } else {
-                hdSearch.style.display = 'none';
+            if (this.checked && navIcon.checked) {
+                body.style.overflow = 'visible';
+                $(nav).fadeOut(); 
+                navIcon.checked = false;
             }
-        }
+        });
 
-        // nav 아이콘을 눌렀을 때 검색창이 보이고 있다면 숨긴다.
-        navIcon.onclick = function(){
-            const hdSearch = document.getElementsByClassName('hd-search')[0];
-
-            if(this.checked){
-                if(searchIcon.checked){
+        // 내비게이션 아이콘 클릭 이벤트
+        navIcon.addEventListener('change', function() {
+            if (this.checked) {
+                if (searchIcon.checked) {
                     hdSearch.style.display = 'none';
                     searchIcon.checked = false;
                 }
-
                 body.style.overflow = 'hidden';
-                $(nav).fadeIn();
+                $(nav).fadeIn(); 
             } else {
                 body.style.overflow = 'visible';
-                $(nav).fadeOut();
-            }           
-        }
+                $(nav).fadeOut(); 
+            }
+        });
+    });
     </script>
 </body>
 </html>

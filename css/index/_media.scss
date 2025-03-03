@@ -1,21 +1,12 @@
-@media (max-width: 512px) {
-    .about-section {
-        .web-event-popup {
-            width: 80%;
-
-            .imgs {
-                img {
-                    width: 95%;
-                }
-            }
-        }
-    }
-}
-
 @media (max-width: 1024px) {
     html { 
         font-size: 14px; 
     }
+
+    .intro-text {
+        font-size: 2.1rem;
+    }
+
     // header.
     header {
         display: block;
@@ -33,31 +24,15 @@
             width: 100%;
             height: 100%;
             .area {
-                &:nth-of-type(1) {
-                    width: 100%;
-                    margin-bottom: 100px;
+                &.left, &.right {
+                    width: 100% !important;
                 }
-                &:nth-of-type(2) {
-                    width: 100%;
-                    justify-content: center;
-                    dl {
-                        width: 70vw;
-                        div {
-                            display: block;
-                            margin: 20px 0;
-                            &:nth-of-type(1) {
-                                float: none;
-                            }
-                            &:nth-of-type(2) {
-                                float: none;
-                            }
-                            &:nth-of-type(3) {
-                                margin: inherit;
-                            }
-                            dd {
-                            }
-                        }
-                        
+
+                &.left {
+                    margin-bottom: 100px;
+
+                    &::after {
+                        display: none;
                     }
                 }
             }
@@ -65,21 +40,20 @@
     }
     // skill section.
     .skill-section {
-        margin-bottom: 150px;
+        margin-bottom: 200px;
         padding: 15px;
+
         .skill-inner {
-            justify-content: center;
-            height: auto;
+            width: 100%;
+            height: 100%;
             .area {
-                &:nth-of-type(1) {
-                    width: 70vw;
-                    .area-inner {
-                        h2 {
-                            font-size: 3rem;
-                        }
-                    }
-                    .sub-tit {
-                        font-size: 1.7rem;
+                &.left, &.right {
+                    width: 100% !important;
+                }
+
+                &.left {
+                    &::after {
+                        display: none;
                     }
                 }
             }
@@ -92,16 +66,22 @@
             flex-wrap: wrap;
             justify-content: center;
             .area {
-                &:nth-of-type(1) {
+                &.left {
+                    width: 100%;
+                    margin-bottom: 50px;
+
                     .area-inner {
                         div {
                             width: 25vw;
                             height: 25vw;
                         }   
                     }
-                    margin-bottom: 50px;
+
+                    &::after {
+                        display: none;
+                    }
                 }
-                &:nth-of-type(2) {
+                &.right {
                     justify-content: center;
                     width: 100%;
                     height: auto;
@@ -111,7 +91,6 @@
                             font-size: 2.2rem;
                         }
                         p {
-                            width: 70vw;
                             &:nth-of-type(1) {
                                 font-size: 1.3rem;
                             }

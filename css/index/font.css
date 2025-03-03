@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'NanumSquareRoundL';
+    font-display: swap;
+    src: url('../../resource/index/font/NanumSquareRoundL.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumSquareRoundB';
+    font-display: swap;
+    src: url('../../resource/index/font/NanumSquareRoundB.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumSquareRoundR';
+    font-display: swap;
+    src: url('../../resource/index/font/NanumSquareRoundR.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'NanumSquareRoundEB';
+    font-display: swap;
+    src: url('../../resource/index/font/NanumSquareRoundEB.ttf') format('truetype');
+}

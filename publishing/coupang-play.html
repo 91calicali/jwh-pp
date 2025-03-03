@@ -208,18 +208,8 @@
         </footer>
     </div>
     <script>
-        function qnaCheck(ele){
-            const qnaCheckBox = document.getElementsByName('qna-check');
-
-            // qna-a가 보이지 않는 상태일 때 내용을 보여준다.
-            // 다시 클릭하면 checked가 false이므로 css에서 display:none 처리.
-            if(ele.checked == true) {
-                qnaCheckBox.forEach((cb) => {
-                    cb.checked = false;
-                });
-
-                ele.checked = true;
-            }
+        function qnaCheck(ele) {
+            document.querySelectorAll('[name="qna-check"]').forEach(cb => cb.checked = cb === ele ? ele.checked : false);
         }
     </script>
 </body>

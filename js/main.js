@@ -2,78 +2,68 @@ let sectionIdx = 0; // 현재 보고 있는 섹션.
 
 window.addEventListener('load', () => {
     const header = document.querySelector('header');
-    const section = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('section');
     const slideNav = document.querySelector('.slide-nav');
 
-    // 옵저버로 각 섹션이 보여질 때 처리.
-    let observer = new IntersectionObserver((e) => {
-        e.forEach((param) => {
-            if(param.isIntersecting) {
-                // 화면 우측에 fix된 슬라이드 바 색상을 변경해야한다.
-                for(let i = 0; i < section.length; i++) {
-                    slideNav.children[i].children[0].classList.remove('active'); 
-                    slideNav.children[i].children[1].classList.remove('active');
+    // 섹션 인덱스 매핑.
+    const SECTION_INDICES = {
+        'intro-section': 0,
+        'about-section': 1,
+        'skill-section': 2,
+        'publ-section': 3,
+        'outro-section': 4
+    };
 
-                    const targetName = param.target.classList[0];
+    const setNavStyles = (color, bgColor) => {
+        Array.from(slideNav.children).forEach(child => {
+            child.children[0].style.color = color;
+            child.children[1].style.backgroundColor = bgColor;
+        });
+    };
 
-                    switch (targetName) {
-                        case 'intro-section':
-                            sectionIdx = 0;
-                            break;
-                        case 'about-section':
-                            sectionIdx = 1;
-                            break;
-                        case 'skill-section':
-                            sectionIdx = 2;
-                            break;
-                        case 'publ-section':
-                            sectionIdx = 3;
-                            break;
-                        case 'outro-section':
-                            sectionIdx = 4;
-                            break;
-                        default:
-                            break;
-                    }
+    const setHeaderStyles = (color) => {
+        Array.from(header.children[0].children).forEach(child => {
+            child.style.backgroundColor = color;
+        });
+    };
+
+    // 옵저버로 각 섹션이 보여질 때 처리
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                Array.from(slideNav.children).forEach(child => {
+                    child.children[0].classList.remove('active');
+                    child.children[1].classList.remove('active');
+                });
+
+                // 현재 섹션 인덱스 설정.
+                const targetName = entry.target.classList[0];
+                sectionIdx = SECTION_INDICES[targetName] ?? sectionIdx;
+
+                // 현재 섹션 활성화.
+                const currentNav = slideNav.children[sectionIdx];
+                if (currentNav) {
+                    currentNav.children[0].classList.add('active');
+                    currentNav.children[1].classList.add('active');
                 }
 
-                slideNav.children[sectionIdx].children[0].classList.add('active'); 
-                slideNav.children[sectionIdx].children[1].classList.add('active');
-
-                if(sectionIdx > 0) {
-                    // 섹션 등장 애니메이션.
-                    if(sectionIdx < 4) {
-                        param.target.style.animation = 'fadeInAndUp2 0.5s linear both';
+                // 스타일 적용.
+                if (sectionIdx > 0) {
+                    if (sectionIdx < 4) {
+                        entry.target.style.animation = 'fadeInAndUp2 0.5s linear both';
                     }
-
-                    for(let i = 0; i < section.length; i++) {
-                        slideNav.children[i].children[0].style.color = '#2a2a77';
-                        slideNav.children[i].children[1].style.backgroundColor = '#2a2a77';
-                    }
-
-                    // gnb-btn 색상도 같이 변경.
-                    for(let i = 0; i < header.children[0].children.length; i++) {
-                        header.children[0].children[i].style.backgroundColor = '#000';                        
-                    }
+                    
+                    setNavStyles('#40362f', '#40362f');
+                    setHeaderStyles('#000');
                 } else {
-                    for(let i = 0; i < section.length; i++) {
-                        slideNav.children[i].children[0].style.color = '#fff';
-                        slideNav.children[i].children[1].style.backgroundColor = '#fff';
-                    }
-
-                    for(let i = 0; i < header.children[0].children.length; i++) {
-                        header.children[0].children[i].style.backgroundColor = '#fff';
-                    }
+                    setNavStyles('#fff', '#fff');
+                    setHeaderStyles('#fff');
                 }
             }
-        });        
-    }, {
-        threshold: 0.5
-    });
+        });
+    }, { threshold: 0.5 });
 
-    for(let i = 0; i < section.length; i++) {
-        observer.observe(section[i]);
-    }
+    sections.forEach(section => observer.observe(section));
 });
 
 window.addEventListener('resize', () => {
@@ -90,26 +80,29 @@ function navToggle() {
     const header = document.querySelector('header');
     const navBtn = document.querySelector('.gnb-btn');
     const gnbNav = document.querySelector('.gnb-nav');
-    const introHeight =  Number(document.querySelector('.intro-section').style.height.split('px')[0]);
+    const introSection = document.querySelector('.intro-section');
+    const introHeight = parseInt(introSection.style.height) || 0;
+    const isNavActive = navBtn.classList.contains('active');
+    
+    const setMobileGnbBtnColor = (color) => {
+        Array.from(header.children[0].children).forEach(child => {
+            child.style.backgroundColor = color;
+        });
+    };
 
-    if(navBtn.classList.contains('active')){
+    if (isNavActive) {
         body.style.overflow = 'visible';
         navBtn.classList.remove('active');
         gnbNav.classList.remove('active');
         
-        if(introHeight < scrollY) {
-            for(let i = 0; i < header.children[0].children.length; i++) {
-                header.children[0].children[i].style.backgroundColor = '#000';
-            }
+        if (introHeight < window.scrollY) {
+            setMobileGnbBtnColor('#000');
         }
     } else {
         body.style.overflow = 'hidden';
         navBtn.classList.add('active');
         gnbNav.classList.add('active');
-
-        for(let i = 0; i < header.children[0].children.length; i++) {
-            header.children[0].children[i].style.backgroundColor = '#fff';
-        }
+        setMobileGnbBtnColor('#fff');
     }
 }
 
@@ -134,16 +127,14 @@ function slideNavMouseLeave(idx, ele) {
 
 // 퍼블리싱 작업물 선택.
 function itemView(idx, ele) {
-    const btnSiblingEle = ele.parentElement.children;
-    const descSiblingEle = document.querySelector('.item-desc').parentElement.children;
+    const btnContainer = ele.parentElement;
+    const descContainer = document.querySelector('.item-desc').parentElement;
 
-    for(let i = 0; i < btnSiblingEle.length; i++){
-        btnSiblingEle[i].classList.remove('active');
-        descSiblingEle[i].classList.remove('active');
-    }
+    Array.from(btnContainer.children).forEach(btn => btn.classList.remove('active'));
+    Array.from(descContainer.children).forEach(desc => desc.classList.remove('active'));
 
     ele.classList.add('active');
-    descSiblingEle[idx].classList.add('active');
+    descContainer.children[idx]?.classList.add('active');
 }
 
 // modal로 작업물 보이기.
@@ -164,7 +155,7 @@ function viewPageInModal(idx) {
             </div>
             `;
 
-            container.insertAdjacentHTML("beforeend", modal);
+    container.insertAdjacentHTML("beforeend", modal);
 }
 
 // modal 제거.
