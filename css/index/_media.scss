@@ -3,10 +3,6 @@
         font-size: 14px; 
     }
 
-    .intro-text {
-        font-size: 2.1rem;
-    }
-
     // header.
     header {
         display: block;
@@ -33,6 +29,25 @@
 
                     &::after {
                         display: none;
+                    }
+                }
+
+                &.right {
+                    dl {
+                        &:not(:last-child) {
+                            ul {
+                                li {
+                                    span {
+                                        display: block;
+                                        width: fit-content;
+                                    }
+    
+                                    &:not(:first-of-type) {
+                                        margin-top: 15px;
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

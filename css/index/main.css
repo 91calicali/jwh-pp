@@ -519,9 +519,6 @@ iframe {
   html {
     font-size: 14px;
   }
-  .intro-text {
-    font-size: 2.1rem;
-  }
   header {
     display: block;
   }
@@ -545,6 +542,14 @@ iframe {
   }
   .about-section .about-inner .area.left::after {
     display: none;
+  }
+  .about-section .about-inner .area.right dl:not(:last-child) ul li span {
+    display: block;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .about-section .about-inner .area.right dl:not(:last-child) ul li:not(:first-of-type) {
+    margin-top: 15px;
   }
   .skill-section {
     margin-bottom: 200px;
