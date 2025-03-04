@@ -199,14 +199,42 @@ header {
         opacity: 0.05;
         mix-blend-mode: overlay;
         pointer-events: none;
-        animation: -webkit-grainAnimation 1s steps(1) infinite;
-        animation: grainAnimation 1s steps(1) infinite;
+    }
+
+    &::after {
+        content: '';
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        right: -50%;
+        bottom: -50%;
+        width: 200%;
+        height: 200%;
+        background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)"/%3E%3C/svg%3E');
+        pointer-events: none;
+        opacity: 0.15;
+        animation: noise 1s steps(2) infinite;
     }
 
     h1 {
         position: relative;
         font-size: 7vw;
         color: #fff;
+        text-shadow: 
+            1px 1px 0 rgba(0, 0, 0, 0.15),
+            -1px -1px 0 rgba(255, 255, 255, 0.08),
+            0 2px 6px rgba(0, 0, 0, 0.2),
+            0 4px 12px rgba(0, 0, 0, 0.15);
+        letter-spacing: 0.02em;
+        
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            color: rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
     }
 }
 // about section.
