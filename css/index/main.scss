@@ -181,7 +181,7 @@ header {
     background: #6C6561;
     background-image: -webkit-linear-gradient(to right bottom, #9a8478, #9b877c, #9c8a7f, #9c8c83, #9d8f87, #998c85, #958a83, #918781, #887e79, #7e7671, #756d69, #6c6561);
     background-image: linear-gradient(to right bottom, #9a8478, #9b877c, #9c8a7f, #9c8c83, #9d8f87, #998c85, #958a83, #918781, #887e79, #7e7671, #756d69, #6c6561);
-    filter: sepia(15%) contrast(1.4) brightness(0.9);
+    filter: sepia(20%) contrast(1.4) brightness(0.9);
 
     &::before {
         content: '';
@@ -204,16 +204,17 @@ header {
     &::after {
         content: '';
         position: fixed;
-        top: -50%;
-        left: -50%;
-        right: -50%;
-        bottom: -50%;
-        width: 200%;
-        height: 200%;
-        background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)"/%3E%3C/svg%3E');
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noise"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%" height="100%" filter="url(%23noise)"/%3E%3C/svg%3E');
+        background-size: cover;
         pointer-events: none;
-        opacity: 0.15;
-        animation: noise 1s steps(2) infinite;
+        opacity: 0.12;
+        animation: noise 0.8s steps(2) infinite;
+        will-change: transform;
+        transform: translateZ(0); 
     }
 
     h1 {
