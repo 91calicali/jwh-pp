@@ -177,9 +177,9 @@ header .gnb-btn.active span:nth-of-type(3) {
 
 .intro-section {
   position: relative;
-  background: #1e130c;
-  background: linear-gradient(to left, #9a8478, #1e130c);
-  filter: sepia(15%) contrast(1.1) brightness(0.9);
+  background: #6C6561;
+  background-image: linear-gradient(to right bottom, #9a8478, #9b877c, #9c8a7f, #9c8c83, #9d8f87, #998c85, #958a83, #918781, #887e79, #7e7671, #756d69, #6c6561);
+  filter: sepia(15%) contrast(1.4) brightness(0.9);
 }
 .intro-section::before {
   content: "";
@@ -192,7 +192,8 @@ header .gnb-btn.active span:nth-of-type(3) {
   opacity: 0.05;
   mix-blend-mode: overlay;
   pointer-events: none;
-  animation: grainAnimation 0.5s steps(1) infinite;
+  animation: -webkit-grainAnimation 1s steps(1) infinite;
+  animation: grainAnimation 1s steps(1) infinite;
 }
 .intro-section h1 {
   position: relative;
